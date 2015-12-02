@@ -1,5 +1,11 @@
 #!/usr/bin/env python
 
+"""
+Solve day 2 of Advent of Code.
+
+http://adventofcode.com/day/2
+"""
+
 def paper_area_from_dimensions(dimensions):
     """
     Calculate the area of paper necessary for a package.
