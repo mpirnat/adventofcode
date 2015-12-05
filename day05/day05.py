@@ -14,9 +14,9 @@ def is_nice(chars):
     Rules for part 1
     """
     return (
-            has_three_vowels(chars) and
-            has_2x_in_row(chars) and
-            does_not_have_bad_pairs(chars)
+        has_three_vowels(chars) and
+        has_2x_in_row(chars) and
+        does_not_have_bad_pairs(chars)
     )
 
 
@@ -25,8 +25,7 @@ def has_three_vowels(chars):
     It contains at least three vowels (aeiou only), like aei, xazegov, or
     aeiouaeiouaeiou.
     """
-    vowels = 'aeiou'
-    if sum([chars.count(x) for x in vowels]) >= 3:
+    if len(re.findall('[aeiou]', chars)) >= 3:
         return True
     return False
 
@@ -47,9 +46,9 @@ def does_not_have_bad_pairs(chars):
     one of the other requirements.
     """
     bad_pairs = ['ab', 'cd', 'pq', 'xy']
-    if any([x in chars for x in bad_pairs]):
-        return False
-    return True
+    if not re.search('|'.join(bad_pairs), chars):
+        return True
+    return False
 
 
 def is_new_nice(chars):
