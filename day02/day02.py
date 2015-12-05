@@ -11,17 +11,14 @@ def paper_area_from_dimensions(dimensions):
     Calculate the area of paper necessary for a package.
     """
 
-    (length, width, height) = [int(x) for x in dimensions.split('x')]
+    dimensions = sorted([int(x) for x in dimensions.split('x')])
 
-    surface_area = (
-            (2 * length * width) +
-            (2 * width * height) +
-            (2 * height * length))
+    surface_area = 2 * (
+            dimensions[0] * dimensions[1] +
+            dimensions[0] * dimensions[2] +
+            dimensions[1] * dimensions[2])
 
-    slack = min([
-            (length * width),
-            (length * height),
-            (height * width)])
+    slack = dimensions[0] * dimensions[1]
 
     return surface_area + slack
 
@@ -30,17 +27,12 @@ def ribbon_length_from_dimensions(dimensions):
     """
     Calculate the ribbon length necessary for a package.
     """
+    dimensions = sorted([int(x) for x in dimensions.split('x')])
 
-    (length, width, height) = [int(x) for x in dimensions.split('x')]
+    perimeter = 2 * (dimensions[0] + dimensions[1])
+    bow_length = dimensions[0] * dimensions[1] * dimensions[2]
 
-    smallest_perimeter = min([
-        2 * (length + width),
-        2 * (length + height),
-        2 * (height + width)])
-
-    bow_length = length * width * height
-
-    return smallest_perimeter + bow_length
+    return perimeter + bow_length
 
 
 if __name__ == '__main__':
