@@ -29,6 +29,7 @@ class TestPart2(unittest.TestCase):
     cases = (
         ('turn on 0,0 through 1,1', 4),
         ('turn off 0,1 through 1,1', 2),
+        ('turn off 0,1 through 5,5', 2), # prove we don't drop below 0
         ('toggle 0,0 through 1,0', 6),
         ('toggle 0,0 through 1,1', 14),
     )
