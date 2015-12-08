@@ -6,8 +6,8 @@ Solve day 8 of Advent of Code.
 http://adventofcode.com/day/8
 """
 
-# because security
-import ast
+import ast  # because security
+import re
 
 
 def get_lengths(string):
@@ -19,7 +19,7 @@ def get_lengths(string):
 
 
 def encode(string):
-    return '"%s"' % string.replace('\\', '\\\\').replace('"', '\\"')
+    return '"%s"' % re.escape(string)
 
 
 if __name__ == '__main__':
