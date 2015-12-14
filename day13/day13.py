@@ -1,9 +1,9 @@
 #!/usr/bin/env python
 
 """
-Solve day 12 of Advent of Code.
+Solve day 13 of Advent of Code.
 
-http://adventofcode.com/day/12
+http://adventofcode.com/day/13
 
 """
 
